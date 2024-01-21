@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@coral-xyz/borsh": "^0.29.0",
     "@solana-developers/node-helpers": "^1.2.2",
     "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-react": "^0.15.35",
