@@ -1,0 +1,22 @@
+import { ConnectionProvider, WalletProvider } from "@solana/wallet-adapter-react";
+import { WalletModalProvider, WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { FC, ReactNode, useMemo } from "react";
+import * as web3 from "@solana/web3.js"
+import * as walletAdapterWallets from "@solana/wallet-adapter-wallets"
+require("@solana/wallet-adapter-react-ui/styles.css")
+
+const ConnectButton: FC<{ children: ReactNode}> = ({children}) => {
+
+    const endpoint = web3.clusterApiUrl("devnet");
+    const wallets = [new walletAdapterWallets.PhantomWalletAdapter()];
+
+    return (
+        <ConnectionProvider endpoint={endpoint}>
+            <WalletProvider wallets={wallets}>
+                <WalletModalProvider>{children}</WalletModalProvider>
+            </WalletProvider>
+        </ConnectionProvider>
+    );
+};
+
+export default ConnectButton;
